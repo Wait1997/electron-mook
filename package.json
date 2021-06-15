@@ -1,0 +1,40 @@
+{
+  "name": "electron-mook",
+  "version": "0.0.1",
+  "description": "electron学习",
+  "main": "./app/main/electron.js",
+  "scripts": {
+    "start:main": "cross-env NODE_ENV=development webpack --config ./scripts/config/webpack.main.dev.js && electron ./dist/electron.js",
+    "start:render": "cross-env NODE_ENV=development webpack serve --config ./scripts/config/webpack.render.dev.js",
+    "install:electron": "ELECTRON_MIRROR=https://cdn.npm.taobao.org/dist/electron/ npm install electron"
+  },
+  "keywords": [],
+  "author": "xiong",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-router-dom": "^5.2.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.14.5",
+    "@babel/core": "^7.14.5",
+    "@babel/plugin-transform-modules-commonjs": "^7.14.5",
+    "@babel/plugin-transform-runtime": "^7.14.5",
+    "@babel/preset-env": "^7.14.5",
+    "@babel/preset-react": "^7.14.5",
+    "@babel/preset-typescript": "^7.14.5",
+    "@types/react": "^17.0.11",
+    "@types/react-dom": "^17.0.7",
+    "@types/react-router-dom": "^5.1.7",
+    "babel-loader": "^8.2.2",
+    "cross-env": "^7.0.3",
+    "electron": "^11.1.1",
+    "html-webpack-plugin": "^5.3.1",
+    "typescript": "^4.3.2",
+    "webpack": "^5.38.1",
+    "webpack-cli": "^4.7.2",
+    "webpack-dev-server": "^3.11.2",
+    "webpack-merge": "^5.8.0"
+  }
+}

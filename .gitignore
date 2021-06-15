@@ -1,0 +1,9 @@
+# 文件
+node_modules
+.idea/*
+.templaterc.js
+template
+dist
+package-lock.json
+# mac自动生成的文件
+.DS_Store

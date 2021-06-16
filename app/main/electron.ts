@@ -16,7 +16,7 @@ function createWindow() {
     }
   })
   if (isDev()) {
-    mainWindow.loadURL(`http://localhost:7009`)
+    mainWindow.loadURL('http://localhost:7009')
   } else {
     mainWindow.loadURL(`file://${resolve(__dirname, '../dist/index.html')}`)
   }

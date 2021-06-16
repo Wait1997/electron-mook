@@ -17,9 +17,9 @@ export default function App() {
           )}
         />
       </Switch>
-      <Title text={'陈天凤'} styles={{ color: 'pink' }} />
+      <Title text='陈天凤' styles={{ color: 'pink' }} />
     </HashRouter>
   )
 }
 
-ReactDOM.render(<App />, document.getElementById('root'))
+ReactDOM.render(<App />, document.querySelector('#root'))

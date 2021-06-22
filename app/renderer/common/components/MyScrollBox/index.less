@@ -1,0 +1,25 @@
+.scroll-box-outer {
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  overflow: hidden;
+
+  .scroll-box-hidden {
+    width: calc(100% + 17px);
+    height: 100%;
+    overflow: -moz-hidden-unscrollable;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+      width: 0;
+      background-color: transparent;
+    }
+
+    .scroll-box-inter {
+      display: inline-block;
+      width: calc(100% - 17px);
+    }
+  }
+}

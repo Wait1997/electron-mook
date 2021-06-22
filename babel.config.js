@@ -9,6 +9,14 @@ module.exports = {
         loose: true,
         lazy: true
       }
+    ],
+    [
+      'import',
+      {
+        libraryName: 'antd',
+        libraryDirectory: 'lib',
+        style: 'css'
+      }
     ]
   ]
 }

@@ -11,7 +11,11 @@ const getCssLoader = (importLoaders) =>
     {
       loader: 'css-loader',
       options: {
-        modules: true, // 开启css模块化
+        // 开启css模块化
+        modules: {
+          compileType: 'module',
+          localIdentName: '[local]__[hash:base64:5]'
+        },
         sourceMap: true, // 开启后与 devtool 设置一致, 开发环境开启，生产环境关闭
         importLoaders // 指定在 CSS loader 处理前使用的 laoder 数量
       }

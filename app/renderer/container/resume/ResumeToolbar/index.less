@@ -1,0 +1,139 @@
+.slider {
+  box-sizing: border-box;
+  width: 280px;
+  padding: 16px;
+  font-size: 14px;
+  border-radius: 6px;
+
+  .module {
+    font-size: 14px;
+
+    .title {
+      position: relative;
+      margin-bottom: 16px;
+      padding-left: 12px;
+      color: #505667;
+      font-size: 14px;
+      line-height: 22px;
+
+      .line {
+        position: absolute;
+        top: 4px;
+        left: 0;
+        width: 3px;
+        height: 14px;
+        background-color: rgb(39, 41, 44);
+      }
+    }
+
+    .content {
+      width: 100%;
+
+      .box {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        height: 72px;
+        margin-bottom: 12px;
+        padding: 0 22px;
+        background-color: #fbfbfb;
+        border-radius: 8px;
+        cursor: pointer;
+        user-select: none;
+
+        &:hover {
+          background-color: #fbfbfb;
+
+          .info {
+            display: flex;
+
+            .tips {
+              display: block;
+            }
+
+            .action {
+              display: inline-flex;
+            }
+          }
+        }
+
+        .info {
+          display: flex;
+
+          .icon {
+            width: 16px;
+            height: 16px;
+            margin-right: 8px;
+            background: url('../../../../../assets/icon/work.png') no-repeat;
+            background-size: cover;
+          }
+
+          .name {
+            color: #505667;
+            font-size: 14px;
+          }
+
+          .summary {
+            margin-top: 8px;
+            overflow: hidden;
+            color: #aeb2bd;
+            font-size: 12px;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            word-break: keep-all;
+          }
+
+          .tips {
+            position: absolute;
+            top: 0;
+            right: 0;
+            display: none;
+            width: 60px;
+            height: 20px;
+            color: #fff;
+            font-size: 12px;
+            line-height: 20px;
+            text-align: center;
+            background-color: #505667;
+            border-top-right-radius: 8px;
+            border-bottom-left-radius: 8px;
+          }
+
+          .action {
+            position: absolute;
+            top: 18px;
+            right: 0;
+            display: none;
+            width: 40px;
+            height: 20px;
+
+            .edit {
+              display: inline-block;
+              width: 16px;
+              height: 16px;
+              margin-right: 8px;
+              background: url('../../../../../assets/icon/edit.png') no-repeat;
+              background-size: cover;
+            }
+
+            .delete {
+              display: inline-block;
+              width: 16px;
+              height: 16px;
+              background: url('../../../../../assets/icon/delete.png') no-repeat;
+              background-size: cover;
+            }
+
+            .add {
+              width: 16px;
+              height: 16px;
+              background: url('../../../../../assets/icon/add.png') no-repeat;
+              background-size: cover;
+            }
+          }
+        }
+      }
+    }
+  }
+}

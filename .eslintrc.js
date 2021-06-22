@@ -87,9 +87,12 @@ module.exports = {
     'unicorn/no-array-reduce': OFF,
     'unicorn/import-style': OFF,
     'unicorn/prefer-module': OFF,
+    'unicorn/numeric-separators-style': OFF,
+    'unicorn/consistent-function-scoping': OFF,
 
     'promise/always-return': OFF,
     'promise/catch-or-return': OFF,
+    'promise/no-nesting': OFF,
 
     '@typescript-eslint/no-useless-constructor': ERROR,
     '@typescript-eslint/no-empty-function': WARN,
@@ -111,6 +114,7 @@ module.exports = {
     'react/prop-types': OFF,
     'react/require-default-props': OFF,
     'react/no-unused-prop-types': OFF,
+    'react/display-name': OFF,
 
     'jsx-a11y/click-events-have-key-events': OFF,
     'jsx-a11y/no-noninteractive-element-interactions': OFF,
@@ -122,7 +126,7 @@ module.exports = {
     'linebreak-style': [ERROR, 'unix'], // 强制使用一致的换行风格
     quotes: [ERROR, 'single'], // 强制使用单引号
     semi: [ERROR, 'never'],
-    'no-unused-expressions': WARN,
+    'no-unused-expressions': OFF,
     'no-plusplus': OFF,
     'no-console': WARN,
     'no-param-reassign': OFF,
@@ -132,6 +136,7 @@ module.exports = {
     'no-use-before-define': OFF, // 禁止在变量定义之前使用它们
     'no-restricted-syntax': OFF, // 禁用特定的语法
     'no-var': WARN,
-    'no-continue': OFF
+    'no-continue': OFF,
+    'no-shadow': OFF
   }
 }

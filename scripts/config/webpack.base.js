@@ -5,7 +5,10 @@ module.exports = {
   resolve: {
     extensions: ['.tsx', '.ts', '.js', '.json'],
     alias: {
-      '@': resolve(PROJECT_PATH, './src')
+      '@': resolve(PROJECT_PATH, './app'),
+      '@m': resolve(PROJECT_PATH, './app/main'),
+      '@r': resolve(PROJECT_PATH, './app/renderer'),
+      '@a': resolve(PROJECT_PATH, './assets')
     }
   },
   module: {
@@ -17,8 +20,7 @@ module.exports = {
           options: { cacheDirectory: true }
         },
         exclude: /node_modules/
-      },
-      {}
+      }
     ]
   }
 }

@@ -1,5 +1,7 @@
 import { resolve } from 'path'
-import { app, BrowserWindow } from 'electron'
+import { app, BrowserWindow, ipcMain } from 'electron'
+
+const rootPath = resolve(app.getAppPath(), '../')
 
 function isDev() {
   return process.env.NODE_ENV === 'development'
@@ -29,4 +31,9 @@ app.whenReady().then(() => {
       createWindow()
     }
   })
+})
+
+// 👇 监听渲染进程发的消息并回复
+ipcMain.on('get-root-path', (event) => {
+  event.reply('reply-root-path', rootPath)
 })

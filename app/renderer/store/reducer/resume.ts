@@ -1,3 +1,6 @@
+import { Dispatch } from 'redux'
+import { ResumeContent, BASE, HOBBY } from '../actions/resume'
+
 const initialState: TSResume.IntactResume = {
   base: {
     avatar: '',
@@ -90,8 +93,20 @@ const initialState: TSResume.IntactResume = {
   ]
 }
 
-const resumeReducer = (state: TSResume.IntactResume = initialState, action: any): TSResume.IntactResume => {
-  return state
+const resumeReducer = (state: TSResume.IntactResume = initialState, action: ResumeContent): TSResume.IntactResume => {
+  const newState = state
+  const { type, payload } = action
+  switch (type) {
+    case BASE:
+      newState.base = { ...(payload as TSResume.Base) }
+      break
+    case HOBBY:
+      newState.hobby = payload as string
+      break
+    default:
+      newState
+  }
+  return newState
 }
 
 export default resumeReducer

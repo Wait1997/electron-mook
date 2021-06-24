@@ -137,6 +137,9 @@ module.exports = {
     'no-restricted-syntax': OFF, // 禁用特定的语法
     'no-var': WARN,
     'no-continue': OFF,
-    'no-shadow': OFF
+    'no-shadow': OFF,
+    'no-bitwise': OFF,
+    'no-underscore-dangle': OFF,
+    'unicorn/prefer-math-trunc': OFF
   }
 }

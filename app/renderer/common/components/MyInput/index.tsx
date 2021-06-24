@@ -149,6 +149,7 @@ export default class MyInput extends React.PureComponent<InputProps, InputState>
     return (
       <div className={classnames(styles['my-input-input'], { [`${styles[`${size}`]}`]: true })}>
         <input
+          className={styles.input}
           {...{ placeholder, maxLength, id, disabled, autoFocus }}
           value={this.state.text}
           onFocus={this.onFocus}
@@ -166,8 +167,9 @@ export default class MyInput extends React.PureComponent<InputProps, InputState>
     const { placeholder, maxLength = 800, id, disabled, allowCount = true, autoFocus, rows = 2 } = this.props
     const { text } = this.state
     return (
-      <div>
+      <div className={styles['my-input-textarea']} style={{ height: 24 * rows }}>
         <textarea
+          className={styles.textarea}
           {...{ placeholder, maxLength, id, disabled, autoFocus }}
           rows={rows}
           value={text}
@@ -201,13 +203,14 @@ export default class MyInput extends React.PureComponent<InputProps, InputState>
     const { bgTransparent = false, allowClear, type, style } = this.props
     return (
       <div
+        style={style}
         className={classnames(styles['my-input'], {
           [`${styles.normal}`]: !bgTransparent,
           [`${styles.focus}`]: this.state.focus,
-          [`${styles.allowClear}`]: allowClear
+          [`${styles['allow-clear']}`]: allowClear
         })}>
         {this.renderBefore()}
-        {TYPE.textarea === type ? this.renderTextarea() : this.renderInput}
+        {TYPE.textarea === type ? this.renderTextarea() : this.renderInput()}
         {this.renderAfter()}
       </div>
     )

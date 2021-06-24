@@ -3,17 +3,44 @@ declare namespace TSResume {
    * @description 基本信息
    */
   export interface Base {
+    /**
+     * @description 头像
+     */
     avatar?: string
+    /**
+     * @description 姓名
+     */
     username: string
+    /**
+     * @description 地区
+     */
     area?: string
+    /**
+     * @description 学校
+     */
     school?: string
+    /**
+     * @description 学年
+     */
     onSchoolTime?: {
       beginTime: string | number | null
       endTime: string | number | null
     }
+    /**
+     * @description 专业
+     */
     major?: string
+    /**
+     * @description 学位
+     */
     degree?: string
+    /**
+     * @description 籍贯
+     */
     hometown?: string
+    /**
+     * @description 政治面貌
+     */
     political?: string
   }
 
@@ -92,6 +119,9 @@ declare namespace TSResume {
    * @description 完整的简历的数据结构
    */
   export interface IntactResume {
+    /**
+     * @description 基本信息
+     */
     base: Base
     skill: string
     skillList: string[]
@@ -100,10 +130,25 @@ declare namespace TSResume {
     evaluationList: string[]
     certificate: string
     certificateList: string[]
+    /**
+     * @description 联系方式
+     */
     contact: Contact
+    /**
+     * 求职岗位
+     */
     work: Work
+    /**
+     * @description 工作经验
+     */
     workExperience?: WorkExperience[]
+    /**
+     * @description 在校经历
+     */
     schoolExperience?: SchoolExperience[]
+    /**
+     * 项目经验
+     */
     projectExperience?: ProjectExperience[]
   }
 

@@ -1,7 +1,6 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useSelector } from 'react-redux'
 import { ResumeToolbarMaps } from '@r/common/constants/resume'
-import Message, { MESSAGE_EVENT_NAME_MAPS } from '@/renderer/common/message'
 import LayoutContent from '@r/container/resume/ResumeContent/LayoutContent'
 import Content from '@r/container/resume/ResumeContent/Content'
 import Avatar from './components/Avatar'
@@ -20,22 +19,6 @@ import '../styles/template.less'
 export default function TemplateOne() {
   const base: TSResume.Base = useSelector((state: any) => state.resumeReducer.base)
   const resumeToolbarKeys: TSResume.ToolKey = useSelector((state: any) => state.templateReducer.resumeToolbarKeys)
-
-  /**
-   * @description 接受订阅事件传递过来的参数
-   */
-  const onReceive = (e: any): void => {
-    Message.receive(e, (data: any) => {
-      console.log(data)
-    })
-  }
-
-  useEffect(() => {
-    document.addEventListener(MESSAGE_EVENT_NAME_MAPS.OPEN_FORM_MODAL, onReceive)
-    return () => {
-      document.removeEventListener(MESSAGE_EVENT_NAME_MAPS.OPEN_FORM_MODAL, onReceive)
-    }
-  }, [])
 
   return (
     <LayoutContent className={styles.container}>

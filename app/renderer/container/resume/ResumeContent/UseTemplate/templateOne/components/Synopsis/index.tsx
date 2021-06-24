@@ -1,10 +1,12 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import styles from './index.less'
 
 export default function Synopsis() {
+  const base: TSResume.Base = useSelector((state: any) => state.resumeReducer.base)
   return (
     <div className={styles.content}>
-      <p className={styles.name}>熊国放</p>
+      {base?.username && <p className={styles.name}>{base.username}</p>}
       <p className={styles.job}>前端工程师</p>
       <p className={styles.summary}>
         {[

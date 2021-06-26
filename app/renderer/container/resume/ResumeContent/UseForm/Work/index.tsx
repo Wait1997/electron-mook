@@ -1,5 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
+import useUpdateResumeHook from '@r/container/resume/ResumeContent/useUpdateResumeHook'
 import MyModal from '@/renderer/common/components/MyModal'
 import MyInput from '@/renderer/common/components/MyInput'
 import styles from './index.less'
@@ -9,6 +10,7 @@ interface IProps {
 }
 
 export default function Work({ onClose }: IProps) {
+  const updateResumeHook = useUpdateResumeHook()
   const work: TSResume.Work = useSelector((state: any) => state.resumeReducer.work)
   return (
     <MyModal.Dialog
@@ -26,7 +28,14 @@ export default function Work({ onClose }: IProps) {
             <span>职位</span>
           </div>
           <div className={styles.right}>
-            <MyInput onChange={(e) => {}} value={work?.job ?? ''} placeholder='求职岗位' allowClear />
+            <MyInput
+              onChange={(e) => {
+                updateResumeHook('work/job', e.target?.value)
+              }}
+              value={work?.job ?? ''}
+              placeholder='求职岗位'
+              allowClear
+            />
           </div>
         </div>
         <div className={styles.flex}>
@@ -35,7 +44,14 @@ export default function Work({ onClose }: IProps) {
             <span>城市</span>
           </div>
           <div className={styles.right}>
-            <MyInput onChange={(e) => {}} value={work?.city ?? ''} placeholder='请输入意愿城市' allowClear />
+            <MyInput
+              onChange={(e) => {
+                updateResumeHook<string>('work/city', e.target?.value)
+              }}
+              value={work?.city ?? ''}
+              placeholder='请输入意愿城市'
+              allowClear
+            />
             <div className={styles.tips}> * 多个地点以｜分割</div>
           </div>
         </div>

@@ -1,5 +1,4 @@
-import { Dispatch } from 'redux'
-import { ResumeContent, BASE, HOBBY } from '../actions/resume'
+import { ResumeContent, BASE, HOBBY, CERTIFICATE, CONTACT, SKILL, WORK } from '../actions/resume'
 
 const initialState: TSResume.IntactResume = {
   base: {
@@ -93,7 +92,10 @@ const initialState: TSResume.IntactResume = {
   ]
 }
 
-const resumeReducer = (state: TSResume.IntactResume = initialState, action: ResumeContent): TSResume.IntactResume => {
+const resumeReducer = (
+  state: TSResume.IntactResume = initialState,
+  action: ResumeContent<string>
+): TSResume.IntactResume => {
   const newState = state
   const { type, payload } = action
   switch (type) {
@@ -102,6 +104,31 @@ const resumeReducer = (state: TSResume.IntactResume = initialState, action: Resu
       break
     case HOBBY:
       newState.hobby = payload as string
+      break
+    case CERTIFICATE:
+      newState.certificate = payload as string
+      break
+    case CONTACT:
+      newState.contact = { ...(payload as TSResume.Contact) }
+      break
+    case SKILL:
+      newState.skill = (
+        payload as {
+          skill: string
+          skillList: string[]
+        }
+      ).skill
+      newState.skillList = [
+        ...(
+          payload as {
+            skill: string
+            skillList: string[]
+          }
+        ).skillList
+      ]
+      break
+    case WORK:
+      newState.work = { ...(payload as TSResume.Work) }
       break
     default:
       newState

@@ -8,6 +8,9 @@ import SkillForm from '@r/container/resume/ResumeContent/UseForm/Skill'
 import EducationForm from '@r/container/resume/ResumeContent/UseForm/Education'
 import WorkForm from '@r/container/resume/ResumeContent/UseForm/Work'
 import CertificateForm from '@r/container/resume/ResumeContent/UseForm/Certificate'
+import ProjectExperienceForm from '@r/container/resume/ResumeContent/UseForm/ProjectExperience'
+import SchoolExperienceForm from './UseForm/SchoolExperience'
+import WorkExperienceForm from './UseForm/WorkExperience'
 import * as UseTemplate from './UseTemplate'
 
 export default function ResumeContent() {
@@ -50,6 +53,9 @@ export default function ResumeContent() {
           {formName === ResumeToolbarMaps.education && <EducationForm onClose={onClose} />}
           {formName === ResumeToolbarMaps.workPrefer && <WorkForm onClose={onClose} />}
           {formName === ResumeToolbarMaps.certificate && <CertificateForm onClose={onClose} />}
+          {formName === ResumeToolbarMaps.projectExperience && <ProjectExperienceForm onClose={onClose} />}
+          {formName === ResumeToolbarMaps.schoolExperience && <SchoolExperienceForm onClose={onClose} />}
+          {formName === ResumeToolbarMaps.workExperience && <WorkExperienceForm onClose={onClose} />}
         </>
       )}
     </MyScrollBox>

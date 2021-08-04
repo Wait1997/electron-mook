@@ -1,0 +1,49 @@
+.menu {
+  position: relative;
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  height: 60px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+
+  .title {
+    width: 420px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  .btn {
+    display: inline-block;
+    width: 60px;
+    height: 28px;
+    margin-right: 12px;
+    font-size: 12px;
+    line-height: 28px;
+    text-align: center;
+    border-radius: 24px;
+    cursor: pointer;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  .save {
+    background-color: #fed634;
+
+    &:hover {
+      background-color: #fbdc5d;
+    }
+  }
+
+  .cancel {
+    border: 1px solid rgba(0, 0, 0, 0.07);
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.04);
+    }
+  }
+}

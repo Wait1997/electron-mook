@@ -110,6 +110,9 @@ declare namespace TSResume {
      * @description 项目名
      */
     projectName?: string
+    /**
+     * @description 职位
+     */
     post?: string
     content?: string
     parseContent?: string[]

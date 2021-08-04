@@ -4,6 +4,9 @@ export const CERTIFICATE = 'CERTIFICATE'
 export const CONTACT = 'CONTACT'
 export const SKILL = 'SKILL'
 export const WORK = 'WORK'
+export const PROJECTEXPERIENCE = 'PROJECTEXPERIENCE'
+export const SCHOOLEXPERIENCE = 'SCHOOLEXPERIENCE'
+export const WORKEXPERIENCE = 'WORKEXPERIENCE'
 
 /**
  * @description 更新基本信息
@@ -44,7 +47,34 @@ export interface SendContentWork {
   payload: TSResume.Work
 }
 
-export type ResumeType = typeof BASE | typeof HOBBY | typeof CERTIFICATE | typeof CONTACT | typeof SKILL | typeof WORK
+/**
+ * @description 修改项目经验
+ */
+export interface SendContentProjectExperience {
+  type: typeof PROJECTEXPERIENCE
+  payload: TSResume.ProjectExperience[]
+}
+
+export interface SendContentSchoolExperience {
+  type: typeof SCHOOLEXPERIENCE
+  payload: TSResume.SchoolExperience[]
+}
+
+export interface SendContentWorkExperience {
+  type: typeof WORKEXPERIENCE
+  payload: TSResume.WorkExperience[]
+}
+
+export type ResumeType =
+  | typeof BASE
+  | typeof HOBBY
+  | typeof CERTIFICATE
+  | typeof CONTACT
+  | typeof SKILL
+  | typeof WORK
+  | typeof PROJECTEXPERIENCE
+  | typeof SCHOOLEXPERIENCE
+  | typeof WORKEXPERIENCE
 
 export type ResumeContent<T> =
   | SendContentBase
@@ -53,6 +83,9 @@ export type ResumeContent<T> =
   | SendContentContact
   | SendContentSkill
   | SendContentWork
+  | SendContentProjectExperience
+  | SendContentSchoolExperience
+  | SendContentWorkExperience
 
 export function sendContentBaseAction(payload: TSResume.Base) {
   return {
@@ -92,6 +125,29 @@ export function sendContentSkillAction(payload: { skill: string; skillList: stri
 export function sendContentWorkAction(payload: TSResume.Work): SendContentWork {
   return {
     type: WORK,
+    payload
+  }
+}
+
+export function sendContentProjectExperienceAction(
+  payload: TSResume.ProjectExperience[]
+): SendContentProjectExperience {
+  return {
+    type: PROJECTEXPERIENCE,
+    payload
+  }
+}
+
+export function sendContentSchoolExperienceAction(payload: TSResume.SchoolExperience[]): SendContentSchoolExperience {
+  return {
+    type: SCHOOLEXPERIENCE,
+    payload
+  }
+}
+
+export function sendContentWorkExperienceAction(payload: TSResume.WorkExperience[]): SendContentWorkExperience {
+  return {
+    type: WORKEXPERIENCE,
     payload
   }
 }

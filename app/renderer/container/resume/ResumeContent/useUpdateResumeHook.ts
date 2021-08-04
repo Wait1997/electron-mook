@@ -5,8 +5,11 @@ import {
   sendContentCertificateAction,
   sendContentContactAction,
   sendContentSkillAction,
-  sendContentWorkAction
+  sendContentWorkAction,
+  sendContentProjectExperienceAction,
+  sendContentSchoolExperienceAction
 } from '@r/store/actions/resume'
+import { AdapterExperienceType } from './UseForm/WrapperExperience/adapter'
 
 /**
  * 修改个人基本信息
@@ -83,6 +86,51 @@ export function useUpdateWorkHook() {
   }
 }
 
+export function useUpdateProjectExperience() {
+  const dispatch = useDispatch()
+  return <T>(stateValue: T) => {
+    const newList = (stateValue as any)?.map((s: AdapterExperienceType) => {
+      const parseContent = s.content ? s.content.split('｜') : []
+      return {
+        ...s,
+        projectName: s?.title,
+        parseContent
+      }
+    })
+    dispatch(sendContentProjectExperienceAction(newList))
+  }
+}
+
+export function useUpdateSchoolExperience() {
+  const dispatch = useDispatch()
+  return <T>(stateValue: T) => {
+    const newList = (stateValue as any)?.map((s: AdapterExperienceType): TSResume.SchoolExperience => {
+      const parseContent = s.content ? s.content.split('｜') : []
+      return {
+        ...s,
+        department: s?.title,
+        parseContent
+      }
+    })
+    dispatch(sendContentSchoolExperienceAction(newList))
+  }
+}
+
+export function useUpdateWorkExperience() {
+  const dispatch = useDispatch()
+  return <T>(stateValue: T) => {
+    const newList = (stateValue as any)?.map((s: AdapterExperienceType): TSResume.WorkExperience => {
+      const parseContent = s.content ? s.content.split('｜') : []
+      return {
+        ...s,
+        department: s?.title,
+        parseContent
+      }
+    })
+    dispatch(sendContentSchoolExperienceAction(newList))
+  }
+}
+
 /**
  * 自定义hook
  * @returns 返回更新的函数
@@ -94,6 +142,9 @@ export default function useUpdateResumeHook() {
   const updateContactHook = useUpdateContactHook()
   const updateSkillHook = useUpdateSkillHook()
   const updateWorkHook = useUpdateWorkHook()
+  const updateProjectExperience = useUpdateProjectExperience()
+  const updateSchoolExperience = useUpdateSchoolExperience()
+  const updateWorkExperience = useUpdateWorkExperience()
 
   return <T>(stateKey: string, stateValue: T) => {
     const keys = stateKey.split('/') || []
@@ -114,6 +165,15 @@ export default function useUpdateResumeHook() {
     }
     if (keys[0] && keys[0] === 'work') {
       updateWorkHook<T>(keys[1], stateValue)
+    }
+    if (keys[0] === 'projectExperience') {
+      updateProjectExperience<T>(stateValue)
+    }
+    if (keys[0] === 'schoolExperience') {
+      updateSchoolExperience(stateValue)
+    }
+    if (keys[0] === 'workExperience') {
+      updateWorkExperience(stateValue)
     }
   }
 }

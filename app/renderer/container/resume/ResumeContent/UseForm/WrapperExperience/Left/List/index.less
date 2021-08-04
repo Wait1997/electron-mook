@@ -1,0 +1,85 @@
+.experience-list {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background-color: #fff;
+  transition: all 0.5s ease;
+
+  .experience-item {
+    position: relative;
+    box-sizing: border-box;
+    height: 60px;
+    padding: 8px 16px 0 12px;
+    color: #464646;
+
+    &:hover {
+      box-sizing: border-box;
+
+      .experience-item-action {
+        display: block;
+      }
+    }
+
+    &.is-select {
+      border-left: 3px solid #fed634;
+    }
+
+    .experience-item-box {
+      box-sizing: border-box;
+      height: 100%;
+      border-bottom: 1px solid #ebebeb;
+      cursor: pointer;
+
+      .experience-item-title {
+        height: 24px;
+        overflow: hidden;
+        color: rgba(0, 0, 0, 0.6);
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 24px;
+        white-space: nowrap;
+        text-align: left;
+        text-overflow: ellipsis;
+      }
+
+      .experience-item-date {
+        position: relative;
+        width: 100%;
+        margin-right: 16px;
+        color: rgba(0, 0, 0, 0.4);
+        font-size: 12px;
+        line-height: 24px;
+      }
+    }
+
+    .experience-item-action {
+      position: absolute;
+      right: -16px;
+      bottom: 2px;
+      display: none;
+      width: 48px;
+
+      .delete-icon {
+        width: 16px;
+        height: 16px;
+      }
+
+      .experience-edit,
+      .experience-delete {
+        display: inline-block;
+        margin: 0 8px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .empty {
+    text-align: center;
+
+    .empty-tips {
+      margin-top: 128px;
+      color: rgba(0, 0, 0, 0.4);
+      font-size: 14px;
+    }
+  }
+}

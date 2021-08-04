@@ -1,4 +1,15 @@
-import { ResumeContent, BASE, HOBBY, CERTIFICATE, CONTACT, SKILL, WORK } from '../actions/resume'
+import {
+  ResumeContent,
+  BASE,
+  HOBBY,
+  CERTIFICATE,
+  CONTACT,
+  SKILL,
+  WORK,
+  PROJECTEXPERIENCE,
+  SCHOOLEXPERIENCE,
+  WORKEXPERIENCE
+} from '../actions/resume'
 
 const initialState: TSResume.IntactResume = {
   base: {
@@ -129,6 +140,15 @@ const resumeReducer = (
       break
     case WORK:
       newState.work = { ...(payload as TSResume.Work) }
+      break
+    case PROJECTEXPERIENCE:
+      newState.projectExperience = [...(payload as TSResume.ProjectExperience[])]
+      break
+    case SCHOOLEXPERIENCE:
+      newState.schoolExperience = [...(payload as TSResume.SchoolExperience[])]
+      break
+    case WORKEXPERIENCE:
+      newState.workExperience = [...(payload as TSResume.WorkExperience[])]
       break
     default:
       newState

@@ -89,6 +89,7 @@ module.exports = {
     'unicorn/prefer-module': OFF,
     'unicorn/numeric-separators-style': OFF,
     'unicorn/consistent-function-scoping': OFF,
+    'unicorn/prefer-math-trunc': OFF,
 
     'promise/always-return': OFF,
     'promise/catch-or-return': OFF,
@@ -139,7 +140,6 @@ module.exports = {
     'no-continue': OFF,
     'no-shadow': OFF,
     'no-bitwise': OFF,
-    'no-underscore-dangle': OFF,
-    'unicorn/prefer-math-trunc': OFF
+    'no-underscore-dangle': OFF
   }
 }
